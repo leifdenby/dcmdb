@@ -9,10 +9,10 @@ from cases import Cases
 #########################################################################
 def set_verbosity(a):
     p = 0
-    if a.v != None:
+    if a.v is not None:
         p += len(a.v)
 
-    if a.s != None:
+    if a.s is not None:
         p -= len(a.s)
     return p
 

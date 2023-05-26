@@ -21,7 +21,7 @@ run = "deode_cy46ref"
 # Define period set to None to fetch all, step defines the step between cycles
 # sdate = datetime.strptime("2021-08-16 00","%Y-%m-%d %H")
 # edate = datetime.strptime("2021-08-16 06","%Y-%m-%d %H")
-# step  = timedelta(hours=6)
+step = timedelta(hours=6)
 sdate = None
 edate = None
 

@@ -177,9 +177,8 @@ class Cases:
 
         bare_files = [os.path.basename(x) for x in files]
         listcmd = ["ssh", remote["host"], "ls", "-1", remote["outpath"]]
-        missing_files = []
         cmd = subprocess.Popen(listcmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        cmd_out, cmd_err = cmd.communicate()
+        cmd_out, _ = cmd.communicate()
         if cmd_out is not None:
             for line in cmd_out.splitlines():
                 fname = line.decode("utf-8")
@@ -280,7 +279,6 @@ class Case:
         return data
 
     def scan(self):
-        findings = {}
         if isinstance(self.runs, dict):
             for name, exp in self.runs.items():
                 result, signal = exp.scan()
@@ -359,10 +357,10 @@ class Exp:
             if "%" in k:
                 s = f"(\\d{{{v}}})"
             if "*" in k:
-                s = f"(.*)"
-                kk = "\*"
+                s = "(.*)"
+                kk = r"\*"
             if "+" in k:
-                s = f"\+"
+                s = r"\+"
 
             mm = [m.start() for m in re.finditer(kk, x)]
             y = y.replace(k, s)
@@ -374,7 +372,7 @@ class Exp:
 
         mk = dict(sorted(mapped_keys.items(), key=lambda item: item[1]))
 
-        y = y.replace("+", "\+")
+        y = y.replace("+", r"\+")
 
         return y, mk, replace_keys
 
@@ -443,9 +441,9 @@ class Exp:
 
                     result.extend(
                         [
-                            sub(f"{self.path_template}/{file}", ddd, l)
-                            for l in leadtimes
-                            if l in self.data[file][ddd]
+                            sub(f"{self.path_template}/{file}", ddd, leadtime)
+                            for leadtime in leadtimes
+                            if leadtime in self.data[file][ddd]
                         ]
                     )
 
@@ -707,10 +705,10 @@ class Exp:
             for cc in content:
                 zz = re.findall(r"" + x + "$", cc)
                 if len(zz) > 0:
-                    dtg, l = self.set_timestamp(mk, zz[0])
+                    dtg, leadtime = self.set_timestamp(mk, zz[0])
                     if dtg not in tmp:
                         tmp[dtg] = []
-                    tmp[dtg].append(l)
+                    tmp[dtg].append(leadtime)
 
             for k in tmp:
                 tmp[k].sort()
@@ -727,16 +725,14 @@ class Exp:
 
         mk_list = list(mk)
         mk_len = len(mk_list)
-        for j, l in enumerate(list_keys):
+        for j, lk in enumerate(list_keys):
             for i, k in enumerate(mk):
-                if l == k:
+                if lk == k:
                     res[j] = z[i]
         dtg = datetime.strptime(":".join(res), "%Y:%m:%d:%H:%M:%S")
 
         leadtime = None
         times = []
-        lh = None
-        lm = None
         for k in mk:
             if k in ("%LLLL", "%LLL", "%LL"):
                 i = mk_list.index(k) - mk_len
@@ -816,7 +812,7 @@ def find_files(path, prefix=""):
     result = []
     try:
         it = os.scandir(path)
-    except:
+    except Exception:
         it = []
     for entry in it:
         if not entry.name.startswith(".") and entry.is_file():
