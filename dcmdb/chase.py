@@ -3,7 +3,8 @@
 import argparse
 import sys
 
-from cases import Cases
+from .cases import Cases
+from .defaults import DEFAULT_CASES_PATH
 
 
 #########################################################################
@@ -70,7 +71,7 @@ def main(argv):
         dest="path",
         help="Path to directory with cases",
         required=False,
-        default="cases",
+        default=DEFAULT_CASES_PATH,
     )
     parser.add_argument(
         "-v",

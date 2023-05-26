@@ -12,7 +12,7 @@
 import os
 from datetime import datetime, timedelta
 
-from cases import Cases, hub
+from .cases import Cases, hub
 
 # Specify the case and the run
 case = "gavle_2021"

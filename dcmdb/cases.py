@@ -9,11 +9,12 @@ from datetime import datetime
 
 import yaml
 
+from .defaults import DEFAULT_CASES_PATH
+
 
 class Cases:
     def __init__(self, names=None, path=None, printlev=None, host=None, selection=None):
-
-        self.path = path if path is not None else "cases"
+        self.path = path if path is not None else DEFAULT_CASES_PATH
         self.printlev = printlev if printlev is not None else 1
         self.host = host if host is not None else self.get_hostname()
         self.selection = selection if selection is not None else {}
