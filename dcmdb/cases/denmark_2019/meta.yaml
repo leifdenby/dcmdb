@@ -5,6 +5,9 @@ deode_dk500_june11:
   atos:
      path_template : 'ec:/miag/harmonie/deode_dk500_june11/%Y/%m/%d/%H/'
 
+  lumi_transfer:
+     path_template : '/scratch/project_465000527/de_33050_common_data/cases/deode_dk500_june11/%Y/%m/%d/%H/'
+
   domain :
      name : 'DK500'
      resolution : 500
