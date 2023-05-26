@@ -5,7 +5,7 @@ IANOS_43h221_de:
   atos:
      path_template : 'ec:/mdk/harmonie/IANOS_43h221_de/%Y/%m/%d/%H/'
 
-  domain : 
+  domain :
      name : 'IANOS_2.5'
      resolution : 2500
      levels : 65
@@ -20,5 +20,3 @@ IANOS500m_de:
      name : 'IANOS_0.5'
      resolution : 500
      levels : 65
-
-     

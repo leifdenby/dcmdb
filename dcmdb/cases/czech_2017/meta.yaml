@@ -5,7 +5,7 @@ NEWREF:
   atos:
      path_template : 'ec:/cza/deode/NEWREF/'
 
-  domain : 
+  domain :
      name : 'CZ1K'
      resolution : 1000m
      native_resolution : 2325m
@@ -18,7 +18,7 @@ OLDREF:
   atos:
      path_template : 'ec:/cza/deode/OLDREF/'
 
-  domain : 
+  domain :
      name : 'CZ1K'
      resolution : 1000m
      native_resolution : 4710m

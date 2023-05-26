@@ -8,7 +8,7 @@ deode_cy46ref:
   lumi_transfer:
      path_template : '/scratch/project_462000140/de_33050_common_data/cases/gavle_2021/deode_cy46ref/%Y/%m/%d/%H/'
 
-  domain : 
+  domain :
      name : 'METCOOP25D'
      resolution : 2500
      levels : 65
@@ -20,7 +20,7 @@ deode_cy46750:
   atos:
      path_template : 'ec:/smb/harmonie/deode_cy46750/%Y/%m/%d/%H/'
 
-  domain : 
+  domain :
      name : 'SOMETHING'
      resolution : 750
      levels : 65

@@ -5,7 +5,7 @@ cy43_ref_iceland:
   atos:
      path_template : 'ec:/icd/DEODE/cy43_ref_iceland/%Y/%m/%d/%H/'
 
-  domain : 
+  domain :
      name : 'ICELAND'
      resolution : 2500
      levels : 65

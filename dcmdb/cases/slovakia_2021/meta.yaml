@@ -5,7 +5,7 @@ HYDRO:
   atos:
      path_template : '/perm/sk9/deode/HYDRO/reference_run/'
 
-  domain : 
+  domain :
      name :
      resolution :
      levels :

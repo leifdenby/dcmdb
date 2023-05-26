@@ -19,4 +19,5 @@ build-backend = "pdm.backend"
 
 [tool.pdm.dev-dependencies]
 dev = [
+    "pre-commit>=3.3.2",
 ]
